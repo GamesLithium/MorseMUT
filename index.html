@@ -64,15 +64,23 @@
       });
     }
 
-    createUnityInstance(canvas, {
-      dataUrl: "Build/MorseMUT.data",
-      frameworkUrl: "Build/MorseMUT.framework.js",
-      codeUrl: "Build/MorseMUT.wasm",
-      streamingAssetsUrl: "StreamingAssets",
-      companyName: "GamesLithium",
-      productName: "Proyecto MuT Telegrafo Electrico",
-      productVersion: "1.0",
-    });
+createUnityInstance(canvas, {
+  dataUrl: "Build/MorseMUT.data",
+  frameworkUrl: "Build/MorseMUT.framework.js",
+  codeUrl: "Build/MorseMUT.wasm",
+  streamingAssetsUrl: "StreamingAssets",
+  companyName: "GamesLithium",
+  productName: "Proyecto MuT Telegrafo Electrico",
+  productVersion: "1.0",
+  // contextOptions puede prevenir problemas con match
+  contextOptions: {
+    preserveDrawingBuffer: true
+  }
+}).then((unityInstance) => {
+  console.log("Juego cargado correctamente.");
+}).catch((error) => {
+  console.error("Error al cargar Unity:", error);
+});
   </script>
 </body>
 </html>
